@@ -12,4 +12,20 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Helper.Dictionary">
+      <HintPath>..\MyLib\Helper.Dictionary.dll</HintPath>
+    </Reference>
+    <Reference Include="IO.JsonFile">
+      <HintPath>..\MyLib\IO.JsonFile.dll</HintPath>
+    </Reference>
+    <Reference Include="WPF.MVVM">
+      <HintPath>..\MyLib\WPF.MVVM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
