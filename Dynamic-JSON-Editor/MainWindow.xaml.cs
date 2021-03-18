@@ -1,4 +1,5 @@
-﻿using Dynamic_JSON_Editor.ViewModel;
+﻿using MvvmCross.Platforms.Wpf.Views;
+using Mxv_Dynamic_JSON_Editor.Core.ViewModels;
 using System.Windows;
 
 namespace Dynamic_JSON_Editor
@@ -6,14 +7,12 @@ namespace Dynamic_JSON_Editor
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindowView : Window
+    public partial class MainWindow : MvxWindow
     {
-        private MainViewMode vm;
 
-        public MainWindowView(MainViewMode _vm)
+        public MainWindow()
         {
             InitializeComponent();
-            vm = _vm;
         }
     }
 }

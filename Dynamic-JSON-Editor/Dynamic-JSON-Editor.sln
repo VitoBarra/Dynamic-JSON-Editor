@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dynamic-JSON-Editor", "Dynamic-JSON-Editor.csproj", "{584CEBD6-12EF-4949-A660-4DE0B384D07B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mxv-Dynamic-JSON-Editor.Core", "..\Mxv-Dynamic-JSON-Editor.Core\Mxv-Dynamic-JSON-Editor.Core.csproj", "{5F2D1EAE-6E13-4274-A406-CA297B25AED4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{584CEBD6-12EF-4949-A660-4DE0B384D07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{584CEBD6-12EF-4949-A660-4DE0B384D07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{584CEBD6-12EF-4949-A660-4DE0B384D07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F2D1EAE-6E13-4274-A406-CA297B25AED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F2D1EAE-6E13-4274-A406-CA297B25AED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F2D1EAE-6E13-4274-A406-CA297B25AED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F2D1EAE-6E13-4274-A406-CA297B25AED4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
