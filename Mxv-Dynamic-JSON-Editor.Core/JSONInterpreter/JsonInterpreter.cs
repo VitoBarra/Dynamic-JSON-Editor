@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Mxv_Dynamic_JSON_Editor.Core.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -6,115 +7,131 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Dynamic_JSON_Editor.JSONInterpreter
 {
     static public class JsonInterpreter
     {
-        static public void Sarter(dynamic jsonInput)
+        static public void WriteInterOnFile(dynamic jsonInput, string path)
         {
-            dynamic resObj = new ExpandoObject();
-
-            FormatObject(resObj, jsonInput);
-
-            string resultingString = Newtonsoft.Json.JsonConvert.SerializeObject(resObj);
-
-            File.WriteAllText(@"D:\Dynamic-JSON-Editor\Dynamic-JSON-Editor\TestJsonToIgnore\done.txt", resultingString);
+            string resultingString = JsonConvert.SerializeObject(FormatObject(jsonInput), Formatting.Indented);
+            File.WriteAllText(path, resultingString);
         }
 
-        static private void FormatObject(dynamic resObj, dynamic el)
+        static public IInterpreterObject FormatObject(dynamic el)
         {
+            IInterpreterObject interpreterObject;
 
             if (el.GetType() == typeof(JArray))
-            {
-                resObj.start = new ExpandoObject();
-                resObj.start.nome = "";
-                resObj.start.type = "Array";
-                IterArray(resObj.start, el);
-            }
-            else
-            {
-                resObj.start = new ExpandoObject();
-                resObj.start.nome = "";
-                resObj.start.type = "Object";
-                IterObj(resObj.start, el);
-            }
+                interpreterObject = IterArray(el);
+            else //JObject
+                interpreterObject =  IterObj(el);
+
+            return interpreterObject;
         }
 
-        static private void IterObj(dynamic resObj, JObject obj)
+        static private JsonObjectType IterObj(JObject obj)
         {
+            JsonObjectType resObj = new();
+
             foreach (var k in obj)
             {
                 if (k.Value.GetType() == typeof(JValue))
-                {
-                    
-                    AddProperty(resObj, k.Key, new { nome = k.Key, type = k.Value.Type });
-                    //$"{k.Key}: {k.Value.Type}\n";
-                }
-                else if (k.Value.GetType() == typeof(JObject))
-                {
-                    AddProperty(resObj, k.Key, new { nome = k.Key, type = k.Value.Type });
-                    IterObj(FirstOrDefault<ExpandoObject>(resObj, k.Key), (JObject)k.Value);
-                }
+                    resObj.Property.Add(new(k.Key, k.Value.Type.JTokenTypeToType()));
                 else
                 {
-                    AddProperty(resObj, k.Key, new { nome = k.Key, type = k.Value.Type });
-                    IterArray(FirstOrDefault(resObj, k.Key), (JArray)k.Value);
+                    if (k.Value.GetType() == typeof(JObject))
+                    {
+                        JObject NestObj = k.Value as JObject;
+                        resObj.Object.Add(new(k.Key, IterObj(NestObj)));
+                    }
+                    else // Jarray
+                    {
+                        JArray NestArray = k.Value as JArray;
+                        resObj.Array.Add(new(k.Key, IterArray(NestArray)));
+                    }
                 }
             }
+
+            return resObj;
         }
 
-        static private void IterArray(dynamic resObj, JArray a)
+        static private JsonArrayType IterArray( JArray a)
         {
-            string currType = "";
-            dynamic currentComplexType = new ExpandoObject();
-            dynamic currentArrayType = new ExpandoObject();
-            IList<dynamic> complexTypes = new List<dynamic>();
-            IList<dynamic> arrayTypes = new List<dynamic>();
-
-            resObj.acceptedTypes = "";
-
+            JsonArrayType resObj = new();
             foreach (var k in a)
             {
                 if (k.GetType() == typeof(JValue))
                 {
-                    currType = k.GetType().ToString().Split('.')[1];
-                    if (!resObj.acceptedTypes.Contains(currType))
-                        resObj.acceptedTypes += " currType ";
-                }
-                else if (k.GetType() == typeof(JObject))
-                {
-                    IterObj(currentComplexType, (JObject)k);
-                    if (!complexTypes.Contains(currentComplexType))
-                        complexTypes.Add(currentComplexType);
+                    var Vel = k as JValue;
+
+                    if (!resObj.ArTypes.Contains(Vel.Type.JTokenTypeToType()))
+                        resObj.ArTypes.Add(Vel.Type.JTokenTypeToType());
                 }
                 else
                 {
-                    IterArray(currentArrayType, (JArray)k);
-                    if (!arrayTypes.Contains(currentArrayType))
-                        arrayTypes.Add(currentArrayType);
+                    if (k.GetType() == typeof(JObject))
+                    {
+
+                        var Vel = k as JObject;
+                        var e = IterObj(Vel);
+
+                        if (!resObj.ArObjects.Contains(e))
+                            resObj.ArObjects.Add(e);
+
+                    }
+                    else
+                    {
+                        var Vel = k as JArray;
+                        var e = IterArray(Vel);
+
+                        if (!resObj.ArArrays.Contains(e))
+                            resObj.ArArrays.Add(e);
+                    }
                 }
-
-                resObj.acceptedComplexTypes = complexTypes;
-                resObj.acceptedComplexTypes = arrayTypes;
             }
+            return resObj;
         }
 
-        static bool AddProperty(ExpandoObject obj, string key, object value)
-        {
-            if (obj == null) return false;
-            var dynamicDict = obj as IDictionary<string, object>;
-            if (dynamicDict.ContainsKey(key))
-                return false;
-            else
-                dynamicDict.Add(key, value);
-            return true;
-        }
 
-        static T FirstOrDefault<T>(ExpandoObject eo, string key)
+
+
+        public static Type JTokenTypeToType(this JTokenType jTokenType)
         {
-            object r = eo.FirstOrDefault(x => x.Key == key).Value;
-            return (r is T) ? (T)r : default(T);
-        }
+            switch (jTokenType)
+            {
+                case JTokenType.Integer:
+                    return typeof(int);
+                case JTokenType.Float:
+                    return typeof(float);
+                case JTokenType.String:
+                    return typeof(string);
+                case JTokenType.Boolean:
+                    return typeof(bool);
+                case JTokenType.Date:
+                    return typeof(DateTime);
+                case JTokenType.Raw:
+                    return typeof(JRaw);
+                case JTokenType.Bytes:
+                    return typeof(byte);
+                case JTokenType.Guid:
+                    return typeof(Guid);
+                case JTokenType.Uri:
+                    return typeof(Uri);
+                case JTokenType.TimeSpan:
+                    return typeof(TimeSpan);
+                case JTokenType.None:
+                case JTokenType.Object:
+                case JTokenType.Array:
+                case JTokenType.Constructor:
+                case JTokenType.Property:
+                case JTokenType.Comment:
+                case JTokenType.Null:
+                case JTokenType.Undefined:
+                default:
+                    return null;
+            }
+        }   
     }
 }

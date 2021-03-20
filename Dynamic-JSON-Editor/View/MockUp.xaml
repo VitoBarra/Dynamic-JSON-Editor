@@ -9,6 +9,10 @@
                 mc:Ignorable="d" 
                 d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="AliceBlue">
-            
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="new" Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </views:MvxWpfView>
