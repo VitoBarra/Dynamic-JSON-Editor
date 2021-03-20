@@ -1,0 +1,79 @@
+﻿<views:MvxWpfView
+    x:Class="Dynamic_JSON_Editor.View.BaseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Dynamic_JSON_Editor.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvx="clr-namespace:MvvmCross.Platforms.Wpf.Binding;assembly=MvvmCross.Platforms.Wpf"
+    xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <views:MvxWpfView.Resources>
+        <Style x:Key="CloseAppButton"/>
+    </views:MvxWpfView.Resources>
+
+    <DockPanel Width="800" Height="450" Background="#FF2F4A61">  
+        <Grid
+            Height="40"
+            VerticalAlignment="Top"
+            DockPanel.Dock="Top"
+            Background="#FF0C2438">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Image Width="40" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="3" />
+
+                    <Menu Grid.Row="0" Grid.Column="1"
+                        Background="{x:Null}"
+                        DockPanel.Dock="Top"
+                        Foreground="White">
+                <MenuItem Header="File" Style="{StaticResource MenuItem}">
+                            <MenuItem Header="New" Style="{StaticResource MenuItemint}" />
+                            <MenuItem Header="Open" Style="{StaticResource MenuItemint}" />
+                            <MenuItem Header="Close" Style="{StaticResource MenuItemint}" />
+                            <MenuItem Header="Save Us" Style="{StaticResource MenuItemint}" />
+                            <MenuItem Header="Save" Style="{StaticResource MenuItemint}" />
+                        </MenuItem>
+                    </Menu>
+
+            <Button Content="_"  Style="{StaticResource WinButton}" Grid.Column="5"  Grid.Row="0" Grid.RowSpan="2"/>
+            <Button Content="M"  Style="{StaticResource WinButton}"  Grid.Column="6"  Grid.Row="0" Grid.RowSpan="2"/>
+            <Button Content="X" Style="{StaticResource CloseButton}"  Grid.Column="7"  Grid.Row="0" Grid.RowSpan="2"/>
+
+
+
+        </Grid>
+
+        <StackPanel Background="#FF133959" />
+
+    <Grid>
+
+
+
+    </Grid>
+    </DockPanel>
+
+
+
+
+
+</views:MvxWpfView>
