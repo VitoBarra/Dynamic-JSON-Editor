@@ -9,67 +9,131 @@
     xmlns:views="clr-namespace:MvvmCross.Platforms.Wpf.Views;assembly=MvvmCross.Platforms.Wpf"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
     <views:MvxWpfView.Resources>
-        <Style x:Key="CloseAppButton"/>
+        <Style x:Key="CloseAppButton" />
     </views:MvxWpfView.Resources>
 
-    <DockPanel Width="800" Height="450" Background="#FF2F4A61">  
+    <DockPanel
+        Width="800"
+        Height="450"
+        Background="#FF2F4A61">
         <Grid
-            Height="40"
+            Height="30"
             VerticalAlignment="Top"
-            DockPanel.Dock="Top"
-            Background="#FF0C2438">
+            Background="#FF0C2438"
+            DockPanel.Dock="Top">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
 
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
             </Grid.ColumnDefinitions>
 
 
 
-            <Image Width="40" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="3" />
+            <Image
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Width="40"
+                Margin="3" />
 
-                    <Menu Grid.Row="0" Grid.Column="1"
-                        Background="{x:Null}"
-                        DockPanel.Dock="Top"
-                        Foreground="White">
-                <MenuItem Header="File" Style="{StaticResource MenuItem}">
-                            <MenuItem Header="New" Style="{StaticResource MenuItemint}" />
-                            <MenuItem Header="Open" Style="{StaticResource MenuItemint}" />
-                            <MenuItem Header="Close" Style="{StaticResource MenuItemint}" />
-                            <MenuItem Header="Save Us" Style="{StaticResource MenuItemint}" />
-                            <MenuItem Header="Save" Style="{StaticResource MenuItemint}" />
-                        </MenuItem>
-                    </Menu>
+            <Menu
+                Grid.Row="0"
+                Grid.Column="1"
+                Background="{x:Null}"
+                DockPanel.Dock="Top"
+                Foreground="White">
+                <MenuItem Header="File" Style="{StaticResource MenuItemint}">
+                    <MenuItem Header="New" Style="{StaticResource MenuItemint}" />
+                    <MenuItem Header="Open" Style="{StaticResource MenuItemint}" />
+                    <MenuItem Header="Close" Style="{StaticResource MenuItemint}" />
+                    <MenuItem Header="Save Us" Style="{StaticResource MenuItemint}" />
+                    <MenuItem Header="Save" Style="{StaticResource MenuItemint}" />
+                </MenuItem>
+            </Menu>
 
-            <Button Content="_"  Style="{StaticResource WinButton}" Grid.Column="5"  Grid.Row="0" Grid.RowSpan="2"/>
-            <Button Content="M"  Style="{StaticResource WinButton}"  Grid.Column="6"  Grid.Row="0" Grid.RowSpan="2"/>
-            <Button Content="X" Style="{StaticResource CloseButton}"  Grid.Column="7"  Grid.Row="0" Grid.RowSpan="2"/>
 
+
+            <Button
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="7"
+                Content="X"
+                Style="{StaticResource CloseButton}" />
+            <Button
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="5"
+                Content="_"
+                Style="{StaticResource WinButton}" />
+            <Button
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="6"
+                Content="M"
+                Style="{StaticResource WinButton}" />
 
 
         </Grid>
 
-        <StackPanel Background="#FF133959" />
-
-    <Grid>
 
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
 
-    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Content="Nome File"
+                Style="{StaticResource WhiteLabel}" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="3"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Right"
+                Content="Json Semple"
+                Style="{StaticResource WhiteLabel}" />
+
+            <Border
+                Grid.Row="1"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource RoundBorderCeleste}" />
+
+            <Grid Grid.Row="1" Grid.Column="1" x:Name="FildGrid">
+
+            </Grid>
+            
+        </Grid>
+
+        
     </DockPanel>
 
 

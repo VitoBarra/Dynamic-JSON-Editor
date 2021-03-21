@@ -12,39 +12,57 @@
 
         <Style x:Key="WindowBase" TargetType="{x:Type views:MvxWindow}">
             <Setter Property="WindowStyle" Value="SingleBorderWindow" />
-            <Setter Property="Background" Value="#081014" />
+            <Setter Property="Background" Value="#2c3e50" />
         </Style>
 
 
-        <Style x:Key="MenuItem" TargetType="{x:Type MenuItem}">
-            <Setter Property="Margin" Value="0,10,0,0" />
-            <Setter Property="Background" Value="#FF2F4A61" />
-            <Setter Property="BorderBrush" Value="#FF021729" />
+        <Style x:Key="RoundBorderLightGray" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#bdccd4" />
+            <Setter Property="BorderBrush" Value="#bdccd4" />
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="CornerRadius" Value="4" />
         </Style>
+
+        <Style x:Key="RoundBorderCeleste" TargetType="{x:Type Border}">
+            <Setter Property="Background" Value="#2c3e50" />
+            <Setter Property="BorderBrush" Value="#4ecdc4" />
+            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style x:Key="FieldWhite" TargetType="{x:Type TextBlock}">
+            <Setter Property="Background" Value="#f7fff7" />
+        </Style>
+
+
+        <Style x:Key="WhiteLabel" TargetType="{x:Type Label}">
+            <Setter Property="Background" Value="#2c3e50" />
+            <Setter Property="Foreground" Value="#f7fff7" />
+        </Style>
+
 
         <Style x:Key="MenuItemint" TargetType="{x:Type MenuItem}">
-            <Setter Property="Margin" Value="0" />
-            <Setter Property="Background" Value="#FF2F4A61" />
-            <Setter Property="BorderBrush" Value="#FF2F4A61" />
-
+            <Setter Property="Background" Value="#2c3e50" />
+            <Setter Property="Foreground" Value="#f7fff7" />
         </Style>
 
-
-        <Style x:Key="CloseButton" TargetType="{x:Type Button}">
-            <Setter Property="Margin" Value="3" />
-            <Setter Property="Background" Value="Red" />
-            <Setter Property="BorderBrush" Value="Red" />
-            <Setter Property="Width" Value="30" />
-            <Setter Property="Height" Value="30" />
-        </Style>
 
         <Style x:Key="WinButton" TargetType="{x:Type Button}">
-            <Setter Property="Margin" Value="3" />
-            <Setter Property="Background" Value="#FF021729" />
-            <Setter Property="BorderBrush" Value="#FF021729" />
-            <Setter Property="Width" Value="30" />
-            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="#2c3e50" />
+            <Setter Property="Foreground" Value="#f7fff7" />
         </Style>
+
+        <Style x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#2c3e50" />
+            <Setter Property="Foreground" Value="#f7fff7" />
+        </Style>
+
+
+        <Style x:Key="ss" TargetType="{x:Type UserControl}">
+            <Setter Property="Background" Value="#2c3e50"/>
+        </Style>
+        
 
         <!--  Background="#FF0C2438"  -->
 
