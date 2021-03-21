@@ -16,13 +16,25 @@ using System.Windows.Shapes;
 namespace Dynamic_JSON_Editor.View.Uc
 {
     /// <summary>
-    /// Logica di interazione per Field.xaml
+    /// Logica di interazione per FieldNumber.xaml
     /// </summary>
-    public partial class Field : UserControl
+    public partial class FieldNumber : UserControl
     {
-        public Field()
+         
+
+        public FieldNumber()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click_Up(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_Down(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

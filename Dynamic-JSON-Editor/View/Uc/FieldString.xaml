@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Dynamic_JSON_Editor.View.Uc.Field"
+﻿<UserControl x:Class="Dynamic_JSON_Editor.View.Uc.FieldString"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Dynamic_JSON_Editor.View.Uc"
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="300"
-             Style="{StaticResource ss}">
+             Style="{StaticResource UserControlBase}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -17,12 +17,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
         <Label Content="campoPlaceHolder" Style="{StaticResource WhiteLabel}"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+        
         <Border Style="{StaticResource RoundBorderLightGray}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-        <TextBlock   Background="AliceBlue"/>
-            
+            <TextBox Background="AliceBlue"/>
         </Border>
     </Grid>
 </UserControl>
