@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Dynamic_JSON_Editor.JSONInterpreter;
+using Microsoft.Win32;
+using IO.JsonFile;
 
 namespace Dynamic_JSON_Editor.View
 {
@@ -24,6 +27,15 @@ namespace Dynamic_JSON_Editor.View
         public MockUp()
         {
             InitializeComponent();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new();
+            if (fileDialog.ShowDialog() == true)
+               JsonInterpreter.WriteInterOnFile(UtilityFileReader.ReadJsonFromFile<dynamic>(fileDialog.FileName),
+                   @"C:\Users\tovi2\Source\Repos\VitoBarra\Dynamic-JSON-Editor\Dynamic-JSON-Editor\TestRes\Out\out.json"
+                   );
         }
     }
 }
