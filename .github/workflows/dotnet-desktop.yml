@@ -40,9 +40,9 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ dev/test/main]
+    branches: [ main, dev/test/main ]
   pull_request:
-    branches: [ dev/test/main]
+    branches: [ main, dev/test/main ]
 
 jobs:
 
@@ -57,9 +57,9 @@ jobs:
 
     env:
       Solution_Name: Dynamic-JSON-Editor.sln                                # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: Dynamic-JSON-Editor\Dynamic-JSON-Editor.csproj     # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      #Wap_Project_Directory: your-wap-project-directory-name                # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      #Wap_Project_Path: your-wap-project-path                               # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Test_Project_Path: Json-Unit-Test\Json-Unit-Test.csproj               # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      #Wap_Project_Directory: your-wap-project-directory-name               # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      #Wap_Project_Path: your-wap-project-path                              # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
     - name: Checkout
