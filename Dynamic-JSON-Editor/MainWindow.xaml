@@ -8,9 +8,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dynamic_JSON_Editor"
         mc:Ignorable="d"
-        Background="AliceBlue"
+        WindowStyle ="ThreeDBorderWindow"
+        Style="{StaticResource WindowBase}"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
 </views:MvxWindow>
