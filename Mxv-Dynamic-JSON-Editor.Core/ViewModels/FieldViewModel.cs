@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mxv_Dynamic_JSON_Editor.Core.ViewModels
 {
-    class FieldViewModel : MvxViewModel
+    public class FieldViewModel : MvxViewModel
     {
     }
 }

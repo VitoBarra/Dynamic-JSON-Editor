@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:VM="clr-namespace:Mxv_Dynamic_JSON_Editor.Core.ViewModels;assembly=Mxv-Dynamic-JSON-Editor.Core"
              xmlns:local="clr-namespace:Dynamic_JSON_Editor.View.Uc"
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="300"
-              Style="{StaticResource UserControlBase}">
+              Style="{StaticResource UserControlBase}"
+              d:DataContext="{d:DesignInstance VM:FieldNumberViewModel,IsDesignTimeCreatable=True}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -26,6 +28,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 
@@ -33,11 +36,20 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock   Background="AliceBlue" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="NumberField"/>
-                <Border Grid.Column="1" Grid.Row="0"  >
+                
+                
+                <TextBox   Background="AliceBlue" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="NumberField" 
+                           Text="{Binding FieldValue}" TextAlignment="Center" 
+                             PreviewTextInput="NumberField_PreviewTextInput"/>
+
+                <TextBox   Background="AliceBlue" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="DeltaValue" TextAlignment="Center"
+                           Text="{Binding DeltaValue}" 
+                             PreviewTextInput="NumberField_PreviewTextInput"/>
+
+                <Border Grid.Column="2" Grid.Row="0"  >
                     <Button Content="˄" FontSize="4" Click="Button_Click_Up"/>
                 </Border>
-                <Border Grid.Column="1" Grid.Row="1" >
+                <Border Grid.Column="2" Grid.Row="1">
                     <Button Content="˅" FontSize="4" Click="Button_Click_Down"/>
                 </Border>
             </Grid>
