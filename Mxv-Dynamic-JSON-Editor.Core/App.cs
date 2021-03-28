@@ -13,7 +13,7 @@ namespace Mxv_Dynamic_JSON_Editor.Core
 
         public override void Initialize()
         {
-            RegisterAppStart<BaseViewModel>();
+            RegisterAppStart<MainViewModel>();
         }
     }
 }
