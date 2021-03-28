@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmCross.Platforms.Wpf.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Dynamic_JSON_Editor.View.Uc
     /// <summary>
     /// Logica di interazione per FieldDate.xaml
     /// </summary>
-    public partial class FieldDate : UserControl
+    public partial class FieldDate : MvxWpfView
     {
         public FieldDate()
         {

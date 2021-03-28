@@ -19,9 +19,9 @@ namespace Dynamic_JSON_Editor.View
     /// <summary>
     /// Logica di interazione per BaseView.xaml
     /// </summary>
-    public partial class BaseView : MvxWpfView
+    public partial class MainView : MvxWpfView
     {
-        public BaseView()
+        public MainView()
         {
             InitializeComponent();
         }

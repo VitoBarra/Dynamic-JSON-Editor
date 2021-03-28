@@ -61,6 +61,8 @@
 
         <Style x:Key="UserControlBase" TargetType="{x:Type UserControl}">
             <Setter Property="Background" Value="#2c3e50" />
+            <Setter Property="MinWidth" Value="300" />
+            <Setter Property="MinHeight" Value="60" />
         </Style>
 
 
