@@ -20,11 +20,11 @@ using IO.JsonFile;
 namespace Dynamic_JSON_Editor.View
 {
     /// <summary>
-    /// Logica di interazione per BaseView.xaml
+    /// Logica di interazione per MockUp.xaml
     /// </summary>
-    public partial class MainView : MvxWpfView
+    public partial class MockUp : MvxWpfView
     {
-        public MainView()
+        public MockUp()
         {
             InitializeComponent();
         }
